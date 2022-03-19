@@ -1,0 +1,31 @@
+<div class="container">
+  <mat-list>
+    <div class="img-container">
+      <img
+        height="100"
+        width="100"
+        src="http://localhost:3000/images/users/{{ data.profile_picture }}"
+        alt="user-image"
+      />
+    </div>
+    <mat-list-item>
+      <p *ngIf="data.user_type === 1">Type: ADMIN</p>
+      <p *ngIf="data.user_type === 0">Type: CUSTOMER</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Name: {{ data.name }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Email: {{ data.email }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Address: {{ data.address }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>City: {{ data.city }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Country: {{ data.country }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Mobile No: {{ data.mobile_no }}</mat-list-item>
+  </mat-list>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close class="btn btn-danger">Close</button>
+  </div>
+</div>

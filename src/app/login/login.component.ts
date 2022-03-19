@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this._loginService.userLogin(this.loginForm.value).subscribe(
       (res) => {
-        localStorage.setItem('email', res.data.email);
+        localStorage.setItem('token', res.token);
         this.toastService.show('✔ Logged In Successfully', {
           classname: 'bg-success text-light',
           delay: 5000,

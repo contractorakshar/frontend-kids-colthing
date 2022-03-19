@@ -36,8 +36,10 @@
 
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
-        <td mat-cell *matCellDef="let row">
-          <mat-icon matTooltip="view more" (click)="viewMoreUser(row)"> more </mat-icon>
+        <td mat-cell class="view-more-btn" *matCellDef="let row">
+          <mat-icon matTooltip="view more" (click)="viewMoreUser(row)">
+            more
+          </mat-icon>
         </td>
       </ng-container>
 

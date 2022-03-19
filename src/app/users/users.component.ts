@@ -3,6 +3,8 @@ import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog'
+import { ViewMoreUserComponent } from './view-more-user/view-more-user.component';
 
 @Component({
   selector: 'app-users',
@@ -10,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
-  constructor(private _userService: UsersService) {
+  constructor(private _userService: UsersService,public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
   displayedColumns: string[] = ['email', 'name', 'user_type', 'city', 'action'];
@@ -26,7 +28,7 @@ export class UsersComponent implements OnInit {
   getAllUsersData() {
     this._userService.getAllUsers().subscribe(
       (res) => {
-        this.dataSource.data = res.data;
+        this.dataSource.data = res.result;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
@@ -45,6 +47,8 @@ export class UsersComponent implements OnInit {
     }
   }
   viewMoreUser(data: any) {
-    console.log(data);
+    this.dialog.open(ViewMoreUserComponent, {
+      data
+    });
   }
 }
