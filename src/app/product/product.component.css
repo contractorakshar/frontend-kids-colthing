@@ -1,0 +1,21 @@
+.example-container {
+  height: 485px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.mat-column-select {
+  overflow: initial;
+}
+td,
+th {
+  width: 25%;
+}
