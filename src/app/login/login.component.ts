@@ -39,14 +39,14 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token);
         this.toastService.show('✔ Logged In Successfully', {
           classname: 'bg-success text-light',
-          delay: 5000,
+          delay: 3000,
         });
         this._router.navigate(['/nav']);
       },
       (err) => {
         this.toastService.show('❌ Please Check Credentials', {
           classname: 'bg-danger text-light',
-          delay: 15000,
+          delay: 2000,
         });
       }
     );

@@ -8,20 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToastsContainer } from './toast/toast.container.component';
 import { ProductComponent } from './product/product.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './login/login.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -39,15 +34,10 @@ import { LoginService } from './login/login.service';
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
-    MatIconModule,
     MatDividerModule,
     NgbModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
     MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],

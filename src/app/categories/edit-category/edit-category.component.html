@@ -1,0 +1,29 @@
+<div class="container p-5">
+  <form [formGroup]="editCategoryFrom" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name" class="mb-3">Category Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Enter Category"
+        formControlName="name"
+      />
+    </div>
+    <button
+      type="submit"
+      [disabled]="!editCategoryFrom.valid"
+      class="btn btn-primary mt-3"
+    >
+      Edit
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary mx-4 mt-3"
+      [routerLink]="['/nav/categories']"
+      routerLinkActive="router-link-active"
+    >
+      Back
+    </button>
+  </form>
+</div>

@@ -1,9 +1,9 @@
 import { UsersService } from './services/users.service';
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog'
+import { MatDialog } from '@angular/material/dialog';
 import { ViewMoreUserComponent } from './view-more-user/view-more-user.component';
 
 @Component({
@@ -12,7 +12,7 @@ import { ViewMoreUserComponent } from './view-more-user/view-more-user.component
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
-  constructor(private _userService: UsersService,public dialog: MatDialog) {
+  constructor(private _userService: UsersService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
   displayedColumns: string[] = ['email', 'name', 'user_type', 'city', 'action'];
@@ -33,7 +33,7 @@ export class UsersComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       (err) => {
-        console.log(err);
+        alert('Error While Fetching User Data');
       }
     );
   }
@@ -48,7 +48,7 @@ export class UsersComponent implements OnInit {
   }
   viewMoreUser(data: any) {
     this.dialog.open(ViewMoreUserComponent, {
-      data
+      data,
     });
   }
 }
