@@ -17,12 +17,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginService } from './login/login.service';
 import { SharedModule } from './shared/shared.module';
 import { MatInputModule } from '@angular/material/input';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SidenavComponent,
     ToastsContainer,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
