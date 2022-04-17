@@ -10,6 +10,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [],
   imports: [
@@ -24,6 +26,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatDividerModule,
     MatListModule,
     MatTooltipModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   exports: [
     MatPaginatorModule,
@@ -36,6 +40,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatDividerModule,
     MatListModule,
     MatTooltipModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
 })
 export class SharedModule {}

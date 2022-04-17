@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { ProductComponent } from './product/product.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 const routes: Routes = [
@@ -10,7 +9,6 @@ const routes: Routes = [
     path: 'nav',
     component: SidenavComponent,
     children: [
-      { path: 'product', component: ProductComponent },
       {
         path: 'users',
         loadChildren: () =>
@@ -22,6 +20,11 @@ const routes: Routes = [
           import('./categories/categories.module').then(
             (m) => m.CategoriesModule
           ),
+      },
+      {
+        path: 'products',
+        loadChildren: () =>
+          import('./products/products.module').then((m) => m.ProductsModule),
       },
     ],
   },

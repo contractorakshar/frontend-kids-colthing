@@ -1,7 +1,7 @@
 <div class="container">
   <div class="text-center">
-    <button routerLink="add-category" class="btn btn-primary btn-lg mt-3">
-      Add Category
+    <button routerLink="add-product" class="btn btn-primary btn-lg mt-3">
+      Add Product
     </button>
   </div>
   <mat-form-field appearance="standard">
@@ -21,19 +21,28 @@
         <td mat-cell *matCellDef="let row">{{ row.name | uppercase }}</td>
       </ng-container>
 
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.price | currency: "INR" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.quantity }}</td>
+      </ng-container>
+
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
         <td mat-cell class="view-more-btn" *matCellDef="let row">
-          <mat-icon matTooltip="view more" (click)="viewMoreCategory(row)">
+          <mat-icon matTooltip="view more" (click)="viewMoreProduct(row)">
             more
           </mat-icon>
-          <mat-icon
-            matTooltip="edit category"
-            (click)="editCategory(row.id)"
-          >
+          <mat-icon matTooltip="edit product" (click)="editProduct(row.id)">
             edit
           </mat-icon>
-          <mat-icon  matTooltip="delete category" (click)="removeCategory(row)">
+          <mat-icon matTooltip="delete product" (click)="removeProduct(row)">
             delete
           </mat-icon>
         </td>

@@ -1,18 +1,24 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.css']
+  styleUrls: ['./sidenav.component.css'],
 })
-export class SidenavComponent {
+export class SidenavComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-  constructor(private observer: BreakpointObserver) { }
+  currentUser: any;
+  constructor(private observer: BreakpointObserver, private _router: Router) {}
+
+  ngOnInit(): void {
+    this.currentUser = localStorage.getItem('currentUser');
+    this.currentUser = JSON.parse(this.currentUser);
+  }
   ngAfterViewInit() {
     this.observer
       .observe(['(max-width: 800px)'])
@@ -26,5 +32,9 @@ export class SidenavComponent {
           this.sidenav.open();
         }
       });
+  }
+  logoutUser(): void {
+    localStorage.clear();
+    this._router.navigate(['/']);
   }
 }

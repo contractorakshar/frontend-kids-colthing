@@ -1,0 +1,33 @@
+<div class="container px-4">
+  <mat-list>
+    <div class="d-flex justify-content-center">
+      <img
+        height="100"
+        width="100"
+        src="http://localhost:3000/images/products/{{ data.cover_image }}"
+        alt="user-image"
+      />
+      <img
+        *ngFor="let item of productPhotos"
+        height="100"
+        width="100"
+        src="http://localhost:3000/images/productPhotos/{{ item.photo_url }}"
+      />
+    </div>
+    <mat-list-item>NAME: {{ data.name | titlecase }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item
+      >MANUFACTURER: {{ data.manufacturer | titlecase }}</mat-list-item
+    >
+    <mat-divider></mat-divider>
+    <mat-list-item
+      >CATEGORY: {{ data.category.name | titlecase }}</mat-list-item
+    >
+    <mat-divider></mat-divider>
+    <mat-list-item>PRICE : {{ data.price | currency: "INR" }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>COLOR: {{ data.color }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>QUANTITY: {{ data.quantity }}</mat-list-item>
+  </mat-list>
+</div>

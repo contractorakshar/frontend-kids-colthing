@@ -7,24 +7,24 @@
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
-  <span>Hello , Akshar</span>
+  <span>Hello , {{ currentUser.name }}</span>
 </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
     <img
       class="avatar mat-elevation-z8"
-      src="https://avatars.githubusercontent.com/u/56545966?v=4"
+      src="http://localhost:3000/images/users/{{currentUser.profile_picture}}"
     />
 
-    <h4 class="name">Akshar Contractor</h4>
+    <!-- <h4 class="name">{{ currentUser.name }}</h4> -->
     <mat-divider></mat-divider>
 
     <button routerLink="/nav" mat-button class="menu-button">
       <mat-icon>home</mat-icon>
       <a>Home</a>
     </button>
-    <button routerLink="/nav/product" mat-button class="menu-button">
+    <button routerLink="/nav/products" mat-button class="menu-button">
       <mat-icon>card_giftcard</mat-icon>
       <span>Product</span>
     </button>
@@ -54,7 +54,7 @@
       <span>About</span>
     </button>
     <mat-divider></mat-divider>
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" (click)="logoutUser()">
       <mat-icon>logout</mat-icon>
       <span>Logout</span>
     </button>

@@ -13,18 +13,16 @@ import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToastsContainer } from './toast/toast.container.component';
-import { ProductComponent } from './product/product.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginService } from './login/login.service';
 import { SharedModule } from './shared/shared.module';
-
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SidenavComponent,
     ToastsContainer,
-    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +34,7 @@ import { SharedModule } from './shared/shared.module';
     MatButtonModule,
     MatDividerModule,
     NgbModule,
+    MatInputModule,
     MatFormFieldModule,
     SharedModule
   ],
