@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chart from 'chart.js';
-import { CalendarOptions } from '@fullcalendar/angular';
 import { ProductsService } from '../products/products.service';
 @Component({
   selector: 'app-home',
@@ -8,7 +7,6 @@ import { ProductsService } from '../products/products.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  calendarOptions: CalendarOptions;
   constructor(private _productService: ProductsService) {}
 
   ngOnInit(): void {
@@ -47,28 +45,12 @@ export class HomeComponent implements OnInit {
           'France',
           'Germany',
           'UK',
-          'Turkey',
-          'Iran',
-          'China',
-          'Russia',
-          'Brazil',
-          'Belgium',
-          'Canada',
-          'Netherlands',
-          'Switzerland',
-          'India',
-          'Portugal',
-          'Peru',
-          'Ireland',
-          'Sweden',
+          'India'
         ],
         datasets: [
           {
-            label: 'Total cases.',
             data: [
-              886789, 213024, 189973, 158183, 153129, 138078, 101790, 87026,
-              82804, 62773, 50036, 42797, 42110, 35729, 28496, 23502, 22353,
-              20914, 17607, 16755,
+              6, 2, 3, 8, 10,
             ],
             backgroundColor: ['red', 'orange'],
             borderWidth: 1,
