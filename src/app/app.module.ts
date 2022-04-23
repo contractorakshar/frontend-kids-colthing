@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +17,8 @@ import { LoginService } from './login/login.service';
 import { SharedModule } from './shared/shared.module';
 import { MatInputModule } from '@angular/material/input';
 import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { ProfileComponent } from './profile/profile.component';
     SidenavComponent,
     ToastsContainer,
     ProfileComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ import { ProfileComponent } from './profile/profile.component';
     NgbModule,
     MatInputModule,
     MatFormFieldModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],
