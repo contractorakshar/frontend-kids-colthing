@@ -35,4 +35,8 @@ export class ProductsService {
   getProductDetailsById(id: string): Observable<any> {
     return this._http.get(this.productBaseUrl + 'product-details/' + id);
   }
+
+  getAllProductCount(): Observable<any> {
+    return this._http.get(this.productBaseUrl + 'all-products-count/');
+  }
 }

@@ -1,0 +1,45 @@
+<div class="container" *ngIf="userDetails">
+  <h2 class="text-center">Order Details</h2>
+  <mat-list>
+    <mat-divider></mat-divider>
+    <mat-list-item>Name: {{ userDetails.name }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Email: {{ userDetails.email }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Address: {{ userDetails.address }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>City: {{ userDetails.city }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Country: {{ userDetails.country }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Mobile No: {{ userDetails.mobile_no }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Order Date: {{ billDetails.order_date }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item
+      >Payment Method: {{ billDetails.payment_method }}</mat-list-item
+    >
+  </mat-list>
+  <div>
+    <table class="table pt-2">
+      <tr>
+        <th>#</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>SubTotal</th>
+      </tr>
+      <tr *ngFor="let item of orderDetails; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price | currency: "INR" }}</td>
+        <td>{{ item.total_price | currency: "INR" }}</td>
+      </tr>
+    </table>
+    <mat-divider></mat-divider>
+    <div class="d-flex justify-content-end px-5">
+      Grand Total: {{ billDetails.amount | currency: "INR" }}
+    </div>
+  </div>
+</div>

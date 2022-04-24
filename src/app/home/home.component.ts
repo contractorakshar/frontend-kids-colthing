@@ -1,17 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chart from 'chart.js';
-import { CalendarOptions } from '@fullcalendar/angular';
 import { ProductsService } from '../products/products.service';
+import { HomeService } from './services/home.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  calendarOptions: CalendarOptions;
-  constructor(private _productService: ProductsService) {}
+  userCount: number;
+  productCount: number;
+  categoryCount: number;
+  constructor(
+    private _productService: ProductsService,
+    private _homeService: HomeService
+  ) {}
 
   ngOnInit(): void {
+    this.getUserCount();
+    this.getProductCount();
+    this.getCategoryCount();
+
     let myChart = new Chart('myChart', {
       type: 'pie',
       data: {
@@ -37,67 +46,94 @@ export class HomeComponent implements OnInit {
       },
     });
 
-    let myChart2 = new Chart('baar', {
-      type: 'bar',
-      data: {
-        labels: [
-          'USA',
-          'Spain',
-          'Italy',
-          'France',
-          'Germany',
-          'UK',
-          'Turkey',
-          'Iran',
-          'China',
-          'Russia',
-          'Brazil',
-          'Belgium',
-          'Canada',
-          'Netherlands',
-          'Switzerland',
-          'India',
-          'Portugal',
-          'Peru',
-          'Ireland',
-          'Sweden',
-        ],
-        datasets: [
-          {
-            label: 'Total cases.',
-            data: [
-              886789, 213024, 189973, 158183, 153129, 138078, 101790, 87026,
-              82804, 62773, 50036, 42797, 42110, 35729, 28496, 23502, 22353,
-              20914, 17607, 16755,
-            ],
-            backgroundColor: ['red', 'orange'],
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        legend: {
-          display: false,
-        },
-        responsive: false,
-      },
-    });
-
-    this.dashboardData();
+    // let myChart2 = new Chart('baar', {
+    //   type: 'bar',
+    //   data: {
+    //     labels: [
+    //       'USA',
+    //       'Spain',
+    //       'Italy',
+    //       'France',
+    //       'Germany',
+    //       'UK',
+    //       'Turkey',
+    //       'Iran',
+    //       'China',
+    //       'Russia',
+    //       'Brazil',
+    //       'Belgium',
+    //       'Canada',
+    //       'Netherlands',
+    //       'Switzerland',
+    //       'India',
+    //       'Portugal',
+    //       'Peru',
+    //       'Ireland',
+    //       'Sweden',
+    //     ],
+    //     datasets: [
+    //       {
+    //         label: 'Total cases.',
+    //         data: [
+    //           886789, 213024, 189973, 158183, 153129, 138078, 101790, 87026,
+    //           82804, 62773, 50036, 42797, 42110, 35729, 28496, 23502, 22353,
+    //           20914, 17607, 16755,
+    //         ],
+    //         backgroundColor: ['red', 'orange'],
+    //         borderWidth: 1,
+    //       },
+    //     ],
+    //   },
+    //   options: {
+    //     legend: {
+    //       display: false,
+    //     },
+    //     responsive: false,
+    //   },
+    // });
   }
 
-  dashboardData(): void {
-    this._productService.getAllProducts().subscribe(
+  getUserCount(): void {
+    this._homeService.getAllUserCount().subscribe(
       (res) => {
-        // res.result
-        console.log(
-          '🚀 ~ file: home.component.ts ~ line 91 ~ HomeComponent ~ this._productService.getAllProducts ~ res',
-          res
-        );
+        if (res.success) {
+          this.userCount = res.result;
+        }
       },
       (err) => {
         console.log(
-          '🚀 ~ file: home.component.ts ~ line 93 ~ HomeComponent ~ this._productService.getAllProducts ~ err',
+          '🚀 ~ file: home.component.ts ~ line 98 ~ HomeComponent ~ getUserCount ~ rr',
+          err
+        );
+      }
+    );
+  }
+
+  getProductCount(): void {
+    this._productService.getAllProductCount().subscribe(
+      (res) => {
+        if (res.success) {
+          this.productCount = res.result;
+        }
+      },
+      (err) => {
+        console.log(
+          '🚀 ~ file: home.component.ts ~ line 98 ~ HomeComponent ~ getUserCount ~ rr',
+          err
+        );
+      }
+    );
+  }
+  getCategoryCount(): void {
+    this._homeService.getAllCategoryCount().subscribe(
+      (res) => {
+        if (res.success) {
+          this.categoryCount = res.result;
+        }
+      },
+      (err) => {
+        console.log(
+          '🚀 ~ file: home.component.ts ~ line 98 ~ HomeComponent ~ getUserCount ~ rr',
           err
         );
       }

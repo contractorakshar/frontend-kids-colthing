@@ -18,6 +18,8 @@ import { SharedModule } from './shared/shared.module';
 import { MatInputModule } from '@angular/material/input';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { OrderComponent } from './order/order.component';
+import { OrderViewMoreComponent } from './order/order-view-more/order-view-more.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { HomeComponent } from './home/home.component';
     ToastsContainer,
     ProfileComponent,
     HomeComponent,
+    OrderComponent,
+    OrderViewMoreComponent,
   ],
   imports: [
     BrowserModule,
